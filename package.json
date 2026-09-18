@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./output.css"
-  },
+  "build": "node build.js && npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
