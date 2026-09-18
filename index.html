@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/jpeg" href="view/image/wellsfargo-com-logo.png">
+
+    <title>Wells Fargo</title>
+
+    <link rel="stylesheet" href="src/output.css">
+
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .mobile-sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-white text-black">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="relative z-50 w-full border-b-4 border-yellow-300 bg-orange-700">
+
+        <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-4 sm:px-6 md:py-5">
+
+            <!-- Logo -->
+            <div>
+                <img
+                    src="view/image/logo.webp"
+                    alt="Bank logo"
+                    class="w-32 sm:w-40 md:w-56"
+                >
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden items-center space-x-6 text-white md:flex lg:space-x-8">
+
+                <a href="#" class="text-sm hover:underline">
+                    ATM/Locations
+                </a>
+
+                <a href="#" class="text-sm hover:underline">
+                    Help
+                </a>
+
+                <a href="#" class="text-sm hover:underline">
+                    Español
+                </a>
+
+                <img
+                    src="view/image/white-search-icon-button-png-img-735811696240431a0p3ex0i2v-removebg-preview.png"
+                    alt="Search"
+                    class="h-6 w-6 cursor-pointer object-contain"
+                >
+
+                <button
+                    type="button"
+                    class="h-9 w-20 rounded-full bg-white text-sm font-semibold text-black hover:underline"
+                >
+                    Sign on
+                </button>
+
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button
+                id="menuButton"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                class="flex h-11 w-11 items-center justify-center rounded-md text-white transition hover:bg-orange-800 md:hidden"
+            >
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-7 w-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                </svg>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MOBILE OVERLAY ================= -->
+
+    <div
+        id="menuOverlay"
+        class="mobile-overlay fixed inset-0 z-[60] hidden bg-black/50 opacity-0 md:hidden"
+    ></div>
+
+
+    <!-- ================= MOBILE SIDEBAR ================= -->
+
+    <aside
+        id="mobileSidebar"
+        class="mobile-sidebar fixed right-0 top-0 z-[70] h-full w-[88%] max-w-[380px] translate-x-full overflow-y-auto bg-white shadow-2xl md:hidden"
+    >
+
+        <!-- Sidebar Header -->
+
+        <div class="flex items-center justify-between bg-orange-700 px-5 py-5">
+
+            <img
+                src="view/image/logo.webp"
+                alt="Bank logo"
+                class="w-32"
+            >
+
+            <button
+                id="closeMenu"
+                type="button"
+                aria-label="Close menu"
+                class="flex h-10 w-10 items-center justify-center rounded-full text-3xl leading-none text-white transition hover:bg-orange-800"
+            >
+                &times;
+            </button>
+
+        </div>
+
+
+        <!-- Main Menu -->
+
+        <div class="border-b px-5 py-5">
+
+            <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-500">
+                Main Menu
+            </p>
+
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 font-semibold text-orange-700"
+            >
+                Personal
+            </a>
+
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
+                Investing & Wealth Management
+            </a>
+
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
+                Business
+            </a>
+
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
+                Commercial Banking
+            </a>
+
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
+                Corporate & Investment Banking
+            </a>
+
+            <a
+                href="#"
+                class="block py-4 text-sm"
+            >
+                About Us
+            </a>
+
+        </div>
+
+
+        <!-- Personal Banking -->
+
+        <div class="px-5 py-5">
+
+            <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-500">
+                Personal Banking
+            </p>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Checking
+            </a>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Savings & CDs
+            </a>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Credit Cards
+            </a>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Home Loans
+            </a>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Personal Loans
+            </a>
+
+            <a href="#" class="block border-b border-gray-200 py-3 text-sm">
+                Premier
+            </a>
+
+            <a href="#" class="block py-3 text-sm">
+                Education & Tools
+            </a>
+
+        </div>
+
+
+        <!-- Utility Links -->
+
+        <div class="border-t bg-gray-50 px-5 py-5">
+
+            <a
+                href="#"
+                class="mb-3 block py-2 text-sm"
+            >
+                ATM/Locations
+            </a>
+
+            <a
+                href="#"
+                class="mb-3 block py-2 text-sm"
+            >
+                Help
+            </a>
+
+            <a
+                href="#"
+                class="mb-5 block py-2 text-sm"
+            >
+                Español
+            </a>
+
+            <button
+                type="button"
+                class="w-full rounded-full bg-orange-700 py-3 font-semibold text-white"
+            >
+                Sign on
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CATEGORY NAV ================= -->
+
+    <div class="hidden w-full bg-gray-100 md:block">
+
+        <div class="mx-auto flex max-w-[1400px] gap-6 overflow-x-auto px-4 py-4">
+
+            <a
+                href="#"
+                class="shrink-0 border-b-4 border-orange-700 pb-3 text-base font-bold"
+            >
+                Personal
+            </a>
+
+            <a
+                href="#"
+                class="shrink-0 text-base hover:underline"
+            >
+                Investing & Wealth Management
+            </a>
+
+            <a
+                href="#"
+                class="shrink-0 text-base hover:underline"
+            >
+                Business
+            </a>
+
+            <a
+                href="#"
+                class="shrink-0 text-base hover:underline"
+            >
+                Commercial Banking
+            </a>
+
+            <a
+                href="#"
+                class="shrink-0 text-base hover:underline"
+            >
+                Corporate & Investment Banking
+            </a>
+
+            <a
+                href="#"
+                class="shrink-0 text-base hover:underline"
+            >
+                About Us
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SECONDARY NAV ================= -->
+
+    <div class="hidden w-full bg-white shadow-sm md:block">
+
+        <div class="mx-auto flex max-w-[1400px] gap-6 overflow-x-auto px-4 py-4">
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Checking
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Savings & CDs
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Credit Cards
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Home Loans
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Personal Loans
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Premier
+            </a>
+
+            <a href="#" class="shrink-0 text-sm hover:underline">
+                Education & Tools
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section
+        class="relative min-h-[650px] w-full bg-cover bg-center md:min-h-[520px]"
+        style="background-image: url('view/image/wallpaper.jpg');"
+    >
+
+        <div
+            class="mx-auto flex max-w-[1400px] flex-col items-center gap-10 px-4 py-10 sm:px-6 sm:py-12 md:px-8 lg:flex-row lg:items-center lg:gap-20 lg:py-16"
+        >
+
+            <!-- Sign In Card -->
+
+            <div class="w-full max-w-[360px] rounded-xl bg-white p-5 shadow-xl sm:p-6">
+
+                <div class="flex flex-col gap-4">
+
+                    <h2 class="text-2xl font-normal">
+                        Good evening
+                    </h2>
+
+                    <p class="text-sm text-gray-700">
+                        Sign on to manage your accounts.
+                    </p>
+
+                    <form id="loginForm">
+
+                        <!-- Username -->
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter Username"
+                            autocomplete="username"
+                            class="h-12 w-full border-b border-gray-500 px-2 outline-none focus:border-orange-700"
+                            required
+                        >
+
+
+                        <!-- Password -->
+
+                        <div class="relative mt-2">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter Password"
+                                autocomplete="current-password"
+                                class="h-12 w-full border-b border-gray-500 px-2 pr-16 outline-none focus:border-orange-700"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                onclick="togglePassword(this)"
+                                class="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-700 hover:underline"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+
+                        <!-- Save Username -->
+
+                        <label class="mt-5 flex items-center gap-2 text-sm">
+
+                            <input
+                                type="checkbox"
+                                class="h-5 w-5"
+                            >
+
+                            <span>
+                                Save Username
+                            </span>
+
+                        </label>
+
+
+                        <!-- Buttons -->
+
+                        <div class="flex flex-wrap items-center gap-5 pt-5">
+
+                            <button
+                                type="submit"
+                                class="w-40 rounded-full bg-orange-700 py-2 text-white transition hover:bg-orange-800"
+                            >
+                                Sign On
+                            </button>
+
+                            <a
+                                href="#"
+                                class="text-sm hover:underline"
+                            >
+                                Enroll
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Links -->
+
+                <div class="mt-6 flex flex-col gap-3 rounded-xl bg-gray-100 px-4 py-4">
+
+                    <a
+                        href="#"
+                        class="text-sm hover:underline"
+                    >
+                        Sign on with a passkey
+                    </a>
+
+                    <a
+                        href="#"
+                        class="text-sm hover:underline"
+                    >
+                        Forgot username or password?
+                    </a>
+
+                    <a
+                        href="#"
+                        class="text-sm hover:underline"
+                    >
+                        Security Center
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Text -->
+
+            <div class="flex w-full max-w-[550px] flex-col gap-7 text-center lg:text-left">
+
+                <div>
+
+                    <p class="text-3xl font-light sm:text-4xl md:text-5xl">
+                        Take control with a
+                    </p>
+
+                    <p class="text-3xl font-light sm:text-4xl md:text-5xl">
+                        0% intro APR
+                    </p>
+
+                </div>
+
+                <p class="mx-auto max-w-md text-base font-light sm:text-lg lg:mx-0">
+                    Pay no interest for 21 months with our introductory card offer.
+                    Terms apply.
+                </p>
+
+                <button
+                    type="button"
+                    class="mx-auto w-44 rounded-full border border-black bg-white py-2 text-black transition hover:bg-black hover:text-white lg:mx-0"
+                >
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OFFER CARDS ================= -->
+
+    <section class="w-full bg-white px-4 py-10 sm:px-6 sm:py-12">
+
+        <div
+            class="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+
+            <!-- Card 1 -->
+
+            <div class="rounded-xl p-5 shadow-md">
+
+                <div class="flex justify-center">
+
+                    <img
+                        src="view/image/hat.avif"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
+
+                </div>
+
+                <div class="mt-4 flex flex-col gap-3">
+
+                    <h3 class="text-xl">
+                        New customer? Say hello to a bonus
+                    </h3>
+
+                    <p class="text-base">
+                        Open a banking account, complete offer requirements,
+                        and receive a qualifying bonus.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        See offer details
+
+                        <img
+                            src="view/image/next.png"
+                            alt=""
+                            class="h-4 w-4"
+                        >
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 2 -->
+
+            <div class="rounded-xl p-5 shadow-md">
+
+                <div class="flex justify-center">
+
+                    <img
+                        src="view/image/card.webp"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
+
+                </div>
+
+                <div class="mt-4 flex flex-col gap-3">
+
+                    <h3 class="text-xl">
+                        Earn rewards
+                    </h3>
+
+                    <p class="text-base">
+                        Use rewards on eligible bookings and qualifying purchases.
+                        Terms apply.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        Learn More
+
+                        <img
+                            src="view/image/next.png"
+                            alt=""
+                            class="h-4 w-4"
+                        >
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 3 -->
+
+            <div class="rounded-xl p-5 shadow-md">
+
+                <div class="flex justify-center">
+
+                    <img
+                        src="view/image/hat.avif"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
+
+                </div>
+
+                <div class="mt-4 flex flex-col gap-3">
+
+                    <h3 class="text-xl">
+                        Find a credit card
+                    </h3>
+
+                    <p class="text-base">
+                        Explore cards with rewards, introductory rates,
+                        and other features.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="mt-5 flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        Learn More
+
+                        <img
+                            src="view/image/next.png"
+                            alt=""
+                            class="h-4 w-4"
+                        >
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 4 -->
+
+            <div class="rounded-xl p-5 shadow-md">
+
+                <div class="flex flex-col gap-5">
+
+                    <h3 class="text-lg font-light">
+                        Interest rates today
+                    </h3>
+
+                    <img
+                        src="view/image/interest.avif"
+                        alt="Interest rates"
+                        class="h-20 w-full object-contain object-left"
+                    >
+
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        See offer details
+
+                        <img
+                            src="view/image/next.png"
+                            alt=""
+                            class="h-4 w-4"
+                        >
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECOND HERO ================= -->
+
+    <section
+        class="relative min-h-[600px] w-full bg-cover bg-center"
+        style="background-image: url('view/image/wallpaper 2.avif');"
+    >
+
+        <div class="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 md:px-16 md:py-24">
+
+            <div class="max-w-[550px] space-y-6">
+
+                <div>
+
+                    <p class="text-3xl font-light sm:text-4xl md:text-5xl">
+                        Earn 60,000 bonus
+                    </p>
+
+                    <p class="text-3xl font-light sm:text-4xl md:text-5xl">
+                        points
+                    </p>
+
+                </div>
+
+                <p class="text-lg sm:text-xl">
+                    On qualifying purchases. Terms apply.
+                </p>
+
+                <button
+                    type="button"
+                    class="w-44 rounded-full border border-black bg-white py-2 transition hover:bg-black hover:text-white"
+                >
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECTION TITLE ================= -->
+
+    <div class="flex justify-center py-8">
+
+        <div class="h-1 w-24 rounded-full bg-yellow-500 sm:w-32"></div>
+
+    </div>
+
+    <h2 class="px-4 text-center text-2xl font-light sm:text-3xl md:text-4xl">
+        Financial guidance and support
+    </h2>
+
+
+    <!-- ================= GUIDANCE CARDS ================= -->
+
+    <section class="px-4 py-10 sm:px-6 sm:py-14">
+
+        <div
+            class="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+
+            <!-- Guidance Card 1 -->
+
+            <div class="overflow-hidden rounded-2xl shadow-md">
+
+                <img
+                    src="view/image/body 2.webp"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
+
+                <div class="flex flex-col gap-5 p-5">
+
+                    <h3 class="text-2xl font-semibold">
+                        Your dreams, your plan
+                    </h3>
+
+                    <p class="text-lg font-light">
+                        Start crafting the foundation for the future
+                        you see yourself in.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
+                        Get Started
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Guidance Card 2 -->
+
+            <div class="overflow-hidden rounded-2xl shadow-md">
+
+                <img
+                    src="view/image/fraud.avif"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
+
+                <div class="flex flex-col gap-5 p-5">
+
+                    <h3 class="text-2xl font-semibold">
+                        Think it’s your bank? Look again.
+                    </h3>
+
+                    <p class="text-lg font-light">
+                        Learn what to do if a scammer calls.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
+                        Get 5 tips
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Guidance Card 3 -->
+
+            <div class="overflow-hidden rounded-2xl shadow-md">
+
+                <img
+                    src="view/image/dog owner.avif"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
+
+                <div class="flex flex-col gap-5 p-5">
+
+                    <h3 class="text-2xl font-semibold">
+                        Secure your next chapter
+                    </h3>
+
+                    <p class="text-lg font-light">
+                        Protect what you've built as you look ahead.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
+                        Explore options
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BROWN / WHITE SECTION ================= -->
+
+    <section class="w-full px-0 py-8 sm:py-10">
+
+        <div
+            class="relative min-h-[750px] w-full overflow-hidden bg-gradient-to-br from-[#6B3E26] from-70% via-[#6B3E26] via-85% to-white md:min-h-[590px]"
+        >
+
+            <div class="mx-auto max-w-[1400px] px-5 sm:px-8 md:px-16">
+
+                <div
+                    class="flex flex-col items-center gap-8 md:flex-row md:items-start md:space-x-12"
+                >
+
+                    <!-- Phone -->
+
+                    <div class="w-full md:w-auto">
+
+                        <img
+                            src="view/image/phone.avif"
+                            alt="Mobile banking"
+                            class="relative top-0 mx-auto h-auto w-full max-w-[350px] object-contain md:top-12 md:max-w-[500px]"
+                        >
+
+                    </div>
+
+
+                    <!-- Text -->
+
+                    <div
+                        class="flex w-full max-w-[680px] flex-col space-y-7 py-5"
+                    >
+
+                        <p class="mt-0 text-3xl font-semibold text-white sm:text-4xl md:mt-14">
+                            Need help? Ask Fargo <sup>®</sup>
+                        </p>
+
+                        <p class="w-full text-2xl text-white sm:text-3xl md:text-4xl">
+                            Fargo <sup>1</sup> gives you valuable insights like a
+                            summary of your spending by category, retailer and
+                            across accounts. Find it only in the Wells Fargo
+                            Mobile <sup>®</sup> app.
+                        </p>
+
+                        <!-- App Store Buttons -->
+
+                        <div class="flex flex-wrap gap-3">
+
+                            <img
+                                src="view/image/App_Store_Badge.avif"
+                                alt="Download on the App Store"
+                                class="h-12 w-auto cursor-pointer"
+                            >
+
+                            <img
+                                src="view/image/GooglePlay_Badge.avif"
+                                alt="Get it on Google Play"
+                                class="h-12 w-auto cursor-pointer"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="mt-10 bg-[#3B2418] text-white">
+
+        <!-- Footer Main Content -->
+
+        <div class="mx-auto max-w-[1400px] px-6 py-12 sm:py-14">
+
+            <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+                <!-- Banking -->
+
+                <div>
+
+                    <h3 class="mb-5 text-lg font-semibold">
+                        Banking
+                    </h3>
+
+                    <ul class="space-y-3 text-sm text-orange-100">
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Checking Accounts
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Savings Accounts
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Credit Cards
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Personal Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Home Loans
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Help & Support -->
+
+                <div>
+
+                    <h3 class="mb-5 text-lg font-semibold">
+                        Help & Support
+                    </h3>
+
+                    <ul class="space-y-3 text-sm text-orange-100">
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Contact Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Help Center
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Security
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Report Fraud
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Accessibility
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Resources -->
+
+                <div>
+
+                    <h3 class="mb-5 text-lg font-semibold">
+                        Resources
+                    </h3>
+
+                    <ul class="space-y-3 text-sm text-orange-100">
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Financial Education
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Financial Guidance
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Calculators
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Interest Rates
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="transition hover:text-white hover:underline"
+                            >
+                                Find a Location
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Connect -->
+
+                <div>
+
+                    <h3 class="mb-5 text-lg font-semibold">
+                        Connect With Us
+                    </h3>
+
+                    <p class="mb-6 text-sm leading-6 text-orange-100">
+                        Stay connected and get helpful information,
+                        financial tips, and updates.
+                    </p>
+
+                    <!-- Social Icons -->
+
+                    <div class="flex gap-3">
+
+                        <a
+                            href="#"
+                            aria-label="Facebook"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
+                            f
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="X"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
+                            X
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] text-xs font-bold transition hover:bg-orange-700"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="LinkedIn"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
+                            in
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer Bottom -->
+
+        <div class="border-t border-[#604333]">
+
+            <div
+                class="mx-auto flex max-w-[1400px] flex-col gap-5 px-6 py-6 md:flex-row md:items-center md:justify-between"
+            >
+
+                <p class="text-sm text-orange-100">
+                    © 2026 Wells Fargo. All rights reserved.
+                </p>
+
+                <div class="flex flex-wrap gap-4 text-sm text-orange-100 sm:gap-5">
+
+                    <a
+                        href="#"
+                        class="transition hover:text-white hover:underline"
+                    >
+                        Privacy
+                    </a>
+
+                    <a
+                        href="#"
+                        class="transition hover:text-white hover:underline"
+                    >
+                        Terms & Conditions
+                    </a>
+
+                    <a
+                        href="#"
+                        class="transition hover:text-white hover:underline"
+                    >
+                        Legal
+                    </a>
+
+                    <a
+                        href="#"
+                        class="transition hover:text-white hover:underline"
+                    >
+                        Sitemap
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* ==========================================
+           PASSWORD SHOW / HIDE
+        ========================================== */
+
+        function togglePassword(button) {
+
+            const password = document.getElementById("password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                button.textContent = "Hide";
+
+            } else {
+
+                password.type = "password";
+                button.textContent = "Show";
+
+            }
+
+        }
+
+
+        /* ==========================================
+           MOBILE SIDEBAR
+        ========================================== */
+
+        const menuButton = document.getElementById("menuButton");
+        const closeMenu = document.getElementById("closeMenu");
+        const mobileSidebar = document.getElementById("mobileSidebar");
+        const menuOverlay = document.getElementById("menuOverlay");
+
+
+        /* Open Sidebar */
+
+        function openMenu() {
+
+            mobileSidebar.classList.remove("translate-x-full");
+
+            menuOverlay.classList.remove("hidden");
+
+            setTimeout(function () {
+
+                menuOverlay.classList.remove("opacity-0");
+
+            }, 10);
+
+            menuButton.setAttribute("aria-expanded", "true");
+
+            document.body.classList.add("overflow-hidden");
+
+        }
+
+
+        /* Close Sidebar */
+
+        function closeMenuFunction() {
+
+            mobileSidebar.classList.add("translate-x-full");
+
+            menuOverlay.classList.add("opacity-0");
+
+            setTimeout(function () {
+
+                menuOverlay.classList.add("hidden");
+
+            }, 300);
+
+            menuButton.setAttribute("aria-expanded", "false");
+
+            document.body.classList.remove("overflow-hidden");
+
+        }
+
+
+        /* Open menu */
+
+        menuButton.addEventListener("click", openMenu);
+
+
+        /* Close menu */
+
+        closeMenu.addEventListener("click", closeMenuFunction);
+
+
+        /* Close when clicking overlay */
+
+        menuOverlay.addEventListener("click", closeMenuFunction);
+
+
+        /* Close when clicking navigation link */
+
+        mobileSidebar.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", closeMenuFunction);
+
+        });
+
+
+        /* Close with Escape key */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                closeMenuFunction();
+
+            }
+
+        });
+
+
+        /* ==========================================
+           DEMO FORM
+        ========================================== */
+
+        // document
+        //     .getElementById("loginForm")
+        //     .addEventListener("submit", function (event) {
+
+        //         event.preventDefault();
+
+        //         alert("Demo form submitted.");
+
+        //     });
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+
+            // Save username
+            localStorage.setItem("username", username);
+
+            // Go to home page
+            window.location.href = "view/home.html";
+        });
+
+    </script>
+
+</body>
+
+</html>
