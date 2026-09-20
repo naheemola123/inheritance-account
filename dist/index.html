@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/jpeg" href="view/image/wellsfargo-com-logo.png">
-
     <title>MyBank - Online Banking</title>
 
     <link rel="stylesheet" href="./output.css">
@@ -48,7 +46,9 @@
 
             <!-- Logo -->
             <div>
-                <img src="view/image/logo.webp" alt="Bank logo" class="w-32 sm:w-40 md:w-56">
+                <a href="index.html" class="text-2xl font-bold text-white sm:text-3xl">
+                    WELLS FARGO
+                </a>
             </div>
 
             <!-- Desktop Navigation -->
@@ -66,23 +66,41 @@
                     Español
                 </a>
 
-                <img src="view/image/white-search-icon-button-png-img-735811696240431a0p3ex0i2v-removebg-preview.png"
-                    alt="Search" class="h-6 w-6 cursor-pointer object-contain">
+                <span class="cursor-pointer text-xl">
+                    🔍
+                </span>
 
-                <button type="button"
-                    class="h-9 w-20 rounded-full bg-white text-sm font-semibold text-black hover:underline">
-                    Sign on
-                </button>
+                <a
+                    href="view/home.html"
+                    class="inline-block rounded-full bg-white px-6 py-2 text-sm font-semibold text-black hover:bg-gray-100"
+                >
+                    sign in
+                </a>
 
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="menuButton" type="button" aria-label="Open menu" aria-expanded="false"
-                class="flex h-11 w-11 items-center justify-center rounded-md text-white transition hover:bg-orange-800 md:hidden">
+            <button
+                id="menuButton"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                class="flex h-11 w-11 items-center justify-center rounded-md text-white transition hover:bg-orange-800 md:hidden"
+            >
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-7 w-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
                 </svg>
 
             </button>
@@ -94,22 +112,33 @@
 
     <!-- ================= MOBILE OVERLAY ================= -->
 
-    <div id="menuOverlay" class="mobile-overlay fixed inset-0 z-[60] hidden bg-black/50 opacity-0 md:hidden"></div>
+    <div
+        id="menuOverlay"
+        class="mobile-overlay fixed inset-0 z-[60] hidden bg-black/50 opacity-0 md:hidden"
+    ></div>
 
 
     <!-- ================= MOBILE SIDEBAR ================= -->
 
-    <aside id="mobileSidebar"
-        class="mobile-sidebar fixed right-0 top-0 z-[70] h-full w-[88%] max-w-[380px] translate-x-full overflow-y-auto bg-white shadow-2xl md:hidden">
+    <aside
+        id="mobileSidebar"
+        class="mobile-sidebar fixed right-0 top-0 z-[70] h-full w-[88%] max-w-[380px] translate-x-full overflow-y-auto bg-white shadow-2xl md:hidden"
+    >
 
         <!-- Sidebar Header -->
 
         <div class="flex items-center justify-between bg-orange-700 px-5 py-5">
 
-            <img src="view/image/logo.webp" alt="Bank logo" class="w-32">
+            <a href="index.html" class="text-2xl font-bold text-white">
+                WELLS FARGO
+            </a>
 
-            <button id="closeMenu" type="button" aria-label="Close menu"
-                class="flex h-10 w-10 items-center justify-center rounded-full text-3xl leading-none text-white transition hover:bg-orange-800">
+            <button
+                id="closeMenu"
+                type="button"
+                aria-label="Close menu"
+                class="flex h-10 w-10 items-center justify-center rounded-full text-3xl leading-none text-white transition hover:bg-orange-800"
+            >
                 &times;
             </button>
 
@@ -124,27 +153,45 @@
                 Main Menu
             </p>
 
-            <a href="#" class="block border-b border-gray-200 py-4 font-semibold text-orange-700">
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 font-semibold text-orange-700"
+            >
                 Personal
             </a>
 
-            <a href="#" class="block border-b border-gray-200 py-4 text-sm">
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
                 Investing & Wealth Management
             </a>
 
-            <a href="#" class="block border-b border-gray-200 py-4 text-sm">
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
                 Business
             </a>
 
-            <a href="#" class="block border-b border-gray-200 py-4 text-sm">
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
                 Commercial Banking
             </a>
 
-            <a href="#" class="block border-b border-gray-200 py-4 text-sm">
-                Corporate & Investment Banking
+            <a
+                href="#"
+                class="block border-b border-gray-200 py-4 text-sm"
+            >
+                Business Services
             </a>
 
-            <a href="#" class="block py-4 text-sm">
+            <a
+                href="#"
+                class="block py-4 text-sm"
+            >
                 About Us
             </a>
 
@@ -180,7 +227,7 @@
             </a>
 
             <a href="#" class="block border-b border-gray-200 py-3 text-sm">
-                Premier
+                Premium Banking
             </a>
 
             <a href="#" class="block py-3 text-sm">
@@ -194,21 +241,33 @@
 
         <div class="border-t bg-gray-50 px-5 py-5">
 
-            <a href="#" class="mb-3 block py-2 text-sm">
+            <a
+                href="#"
+                class="mb-3 block py-2 text-sm"
+            >
                 ATM/Locations
             </a>
 
-            <a href="#" class="mb-3 block py-2 text-sm">
+            <a
+                href="#"
+                class="mb-3 block py-2 text-sm"
+            >
                 Help
             </a>
 
-            <a href="#" class="mb-5 block py-2 text-sm">
+            <a
+                href="#"
+                class="mb-5 block py-2 text-sm"
+            >
                 Español
             </a>
 
-            <button type="button" class="w-full rounded-full bg-orange-700 py-3 font-semibold text-white">
-                Sign on
-            </button>
+            <a
+                href="view/home.html"
+                class="block w-full rounded-full bg-orange-700 py-3 text-center font-semibold text-white"
+            >
+                sign in 
+            </a>
 
         </div>
 
@@ -221,7 +280,10 @@
 
         <div class="mx-auto flex max-w-[1400px] gap-6 overflow-x-auto px-4 py-4">
 
-            <a href="#" class="shrink-0 border-b-4 border-orange-700 pb-3 text-base font-bold">
+            <a
+                href="#"
+                class="shrink-0 border-b-4 border-orange-700 pb-3 text-base font-bold"
+            >
                 Personal
             </a>
 
@@ -238,7 +300,7 @@
             </a>
 
             <a href="#" class="shrink-0 text-base hover:underline">
-                Corporate & Investment Banking
+                Business Services
             </a>
 
             <a href="#" class="shrink-0 text-base hover:underline">
@@ -277,7 +339,7 @@
             </a>
 
             <a href="#" class="shrink-0 text-sm hover:underline">
-                Premier
+                Premium Banking
             </a>
 
             <a href="#" class="shrink-0 text-sm hover:underline">
@@ -291,74 +353,73 @@
 
     <!-- ================= HERO ================= -->
 
-    <section class="relative min-h-[650px] w-full bg-cover bg-center md:min-h-[520px]"
-        style="background-image: url('view/image/wallpaper.jpg');">
+    <section
+        class="relative min-h-[650px] w-full bg-cover bg-center md:min-h-[520px]"
+        style="background-image: url('view/image/wallpaper.jpg');"
+    >
 
         <div
-            class="mx-auto flex max-w-[1400px] flex-col items-center gap-10 px-4 py-10 sm:px-6 sm:py-12 md:px-8 lg:flex-row lg:items-center lg:gap-20 lg:py-16">
+            class="mx-auto flex max-w-[1400px] flex-col items-center gap-10 px-4 py-10 sm:px-6 sm:py-12 md:px-8 lg:flex-row lg:items-center lg:gap-20 lg:py-16"
+        >
 
-            <!-- Sign In Card -->
+            <!-- Demo Sign In Card -->
 
             <div class="w-full max-w-[360px] rounded-xl bg-white p-5 shadow-xl sm:p-6">
 
                 <div class="flex flex-col gap-4">
 
                     <h2 class="text-2xl font-normal">
-                        Good evening
+                        Welcome
                     </h2>
 
                     <p class="text-sm text-gray-700">
-                        Sign on to manage your accounts.
+                        Sign in to manage your account
                     </p>
 
-                    <form>
+                    <form id="loginForm">
 
-                        <!-- Username -->
+                        <!-- Demo Username -->
 
-                        <input type="text" id="username" placeholder="Enter Username" autocomplete="username"
-                            class="h-12 w-full border-b border-gray-500 px-2 outline-none focus:border-orange-700">
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            autocomplete="off"
+                            class="h-12 w-full border-b border-gray-500 px-2 outline-none focus:border-orange-700"
+                        >
 
-
-                        <!-- Password -->
+                        <!-- Demo Password -->
 
                         <div class="relative mt-2">
 
-                            <input type="password" id="password" placeholder="Enter Password"
-                                autocomplete="current-password"
-                                class="h-12 w-full border-b border-gray-500 px-2 pr-16 outline-none focus:border-orange-700">
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Password"
+                                autocomplete="off"
+                                class="h-12 w-full border-b border-gray-500 px-2 pr-16 outline-none focus:border-orange-700"
+                            >
 
                             <button
-                                class="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-700 hover:underline">
+                                type="button"
+                                onclick="togglePassword(this)"
+                                class="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-700 hover:underline"
+                            >
                                 Show
                             </button>
 
                         </div>
 
 
-                        <!-- Save Username -->
-
-                        <label class="mt-5 flex items-center gap-2 text-sm">
-
-                            <input type="checkbox" class="h-5 w-5">
-
-                            <span>
-                                Save Username
-                            </span>
-
-                        </label>
-
-
-                        <!-- Buttons -->
+                        <!-- Demo Button -->
 
                         <div class="flex flex-wrap items-center gap-5 pt-5">
 
-                            <a href="view/home.html"
-                                class="inline-block w-40 rounded-full bg-orange-700 py-2 text-center text-white transition hover:bg-orange-800">
-                                Sign On
-                            </a>
-
-                            <a href="#" class="text-sm hover:underline">
-                                Enroll
+                            <a
+                                href="view/home.html"
+                                class="inline-block w-40 rounded-full bg-orange-700 py-2 text-center text-white transition hover:bg-orange-800"
+                            >
+                                sign in
                             </a>
 
                         </div>
@@ -368,21 +429,13 @@
                 </div>
 
 
-                <!-- Links -->
+                <!-- Demo Information -->
 
-                <div class="mt-6 flex flex-col gap-3 rounded-xl bg-gray-100 px-4 py-4">
+                <div class="mt-6 rounded-xl bg-gray-100 px-4 py-4">
 
-                    <a href="#" class="text-sm hover:underline">
-                        Sign on with a passkey
-                    </a>
-
-                    <a href="#" class="text-sm hover:underline">
-                        Forgot username or password?
-                    </a>
-
-                    <a href="#" class="text-sm hover:underline">
-                        Security Center
-                    </a>
+                    <p class="text-sm leading-6 text-gray-700">
+                        TSign in to manage your account
+                    </p>
 
                 </div>
 
@@ -396,22 +449,24 @@
                 <div>
 
                     <p class="text-3xl font-light sm:text-4xl md:text-5xl">
-                        Take control with a
+                        Take control of your
                     </p>
 
                     <p class="text-3xl font-light sm:text-4xl md:text-5xl">
-                        0% intro APR
+                        financial future
                     </p>
 
                 </div>
 
                 <p class="mx-auto max-w-md text-base font-light sm:text-lg lg:mx-0">
-                    Pay no interest for 21 months with our introductory card offer.
-                    Terms apply.
+                    Explore simple tools and resources designed to help
+                    you manage your money with confidence.
                 </p>
 
-                <button type="button"
-                    class="mx-auto w-44 rounded-full border border-black bg-white py-2 text-black transition hover:bg-black hover:text-white lg:mx-0">
+                <button
+                    type="button"
+                    class="mx-auto w-44 rounded-full border border-black bg-white py-2 text-black transition hover:bg-black hover:text-white lg:mx-0"
+                >
                     Learn More
                 </button>
 
@@ -426,7 +481,9 @@
 
     <section class="w-full bg-white px-4 py-10 sm:px-6 sm:py-12">
 
-        <div class="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+            class="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
 
             <!-- Card 1 -->
 
@@ -434,25 +491,32 @@
 
                 <div class="flex justify-center">
 
-                    <img src="view/image/hat.avif" alt="" class="h-16 w-16 object-contain">
+                    <img
+                        src="view/image/hat.avif"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
 
                 </div>
 
                 <div class="mt-4 flex flex-col gap-3">
 
                     <h3 class="text-xl">
-                        New customer? Say hello to a bonus
+                        Welcome to MyBank
                     </h3>
 
                     <p class="text-base">
-                        Open a banking account, complete offer requirements,
-                        and receive a qualifying bonus.
+                        Explore our simple banking tools and discover
+                        features designed for everyday financial needs.
                     </p>
 
-                    <a href="#" class="flex items-center gap-3 font-semibold text-purple-800 hover:underline">
-                        See offer details
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        Learn More
 
-                        <img src="view/image/next.png" alt="" class="h-4 w-4">
+                        <span class="text-lg">→</span>
                     </a>
 
                 </div>
@@ -466,25 +530,32 @@
 
                 <div class="flex justify-center">
 
-                    <img src="view/image/card.webp" alt="" class="h-16 w-16 object-contain">
+                    <img
+                        src="view/image/card.webp"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
 
                 </div>
 
                 <div class="mt-4 flex flex-col gap-3">
 
                     <h3 class="text-xl">
-                        Earn rewards
+                        Manage your money
                     </h3>
 
                     <p class="text-base">
-                        Use rewards on eligible bookings and qualifying purchases.
-                        Terms apply.
+                        Explore tools that can help you organize your
+                        spending and keep track of your financial goals.
                     </p>
 
-                    <a href="#" class="flex items-center gap-3 font-semibold text-purple-800 hover:underline">
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
                         Learn More
 
-                        <img src="view/image/next.png" alt="" class="h-4 w-4">
+                        <span class="text-lg">→</span>
                     </a>
 
                 </div>
@@ -498,25 +569,32 @@
 
                 <div class="flex justify-center">
 
-                    <img src="view/image/hat.avif" alt="" class="h-16 w-16 object-contain">
+                    <img
+                        src="view/image/hat.avif"
+                        alt=""
+                        class="h-16 w-16 object-contain"
+                    >
 
                 </div>
 
                 <div class="mt-4 flex flex-col gap-3">
 
                     <h3 class="text-xl">
-                        Find a credit card
+                        Explore banking options
                     </h3>
 
                     <p class="text-base">
-                        Explore cards with rewards, introductory rates,
-                        and other features.
+                        Learn about checking, savings, cards and other
+                        financial services.
                     </p>
 
-                    <a href="#" class="mt-5 flex items-center gap-3 font-semibold text-purple-800 hover:underline">
+                    <a
+                        href="#"
+                        class="mt-5 flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
                         Learn More
 
-                        <img src="view/image/next.png" alt="" class="h-4 w-4">
+                        <span class="text-lg">→</span>
                     </a>
 
                 </div>
@@ -531,16 +609,22 @@
                 <div class="flex flex-col gap-5">
 
                     <h3 class="text-lg font-light">
-                        Interest rates today
+                        Financial resources
                     </h3>
 
-                    <img src="view/image/interest.avif" alt="Interest rates"
-                        class="h-20 w-full object-contain object-left">
+                    <img
+                        src="view/image/interest.avif"
+                        alt="Financial resources"
+                        class="h-20 w-full object-contain object-left"
+                    >
 
-                    <a href="#" class="flex items-center gap-3 font-semibold text-purple-800 hover:underline">
-                        See offer details
+                    <a
+                        href="#"
+                        class="flex items-center gap-3 font-semibold text-purple-800 hover:underline"
+                    >
+                        Explore Resources
 
-                        <img src="view/image/next.png" alt="" class="h-4 w-4">
+                        <span class="text-lg">→</span>
                     </a>
 
                 </div>
@@ -554,8 +638,10 @@
 
     <!-- ================= SECOND HERO ================= -->
 
-    <section class="relative min-h-[600px] w-full bg-cover bg-center"
-        style="background-image: url('view/image/wallpaper 2.avif');">
+    <section
+        class="relative min-h-[600px] w-full bg-cover bg-center"
+        style="background-image: url('view/image/wallpaper 2.avif');"
+    >
 
         <div class="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 md:px-16 md:py-24">
 
@@ -564,21 +650,24 @@
                 <div>
 
                     <p class="text-3xl font-light sm:text-4xl md:text-5xl">
-                        Earn 60,000 bonus
+                        Build better
                     </p>
 
                     <p class="text-3xl font-light sm:text-4xl md:text-5xl">
-                        points
+                        financial habits
                     </p>
 
                 </div>
 
                 <p class="text-lg sm:text-xl">
-                    On qualifying purchases. Terms apply.
+                    Discover resources and ideas that can help you
+                    plan for your financial goals.
                 </p>
 
-                <button type="button"
-                    class="w-44 rounded-full border border-black bg-white py-2 transition hover:bg-black hover:text-white">
+                <button
+                    type="button"
+                    class="w-44 rounded-full border border-black bg-white py-2 transition hover:bg-black hover:text-white"
+                >
                     Learn More
                 </button>
 
@@ -606,27 +695,35 @@
 
     <section class="px-4 py-10 sm:px-6 sm:py-14">
 
-        <div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+            class="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
 
             <!-- Guidance Card 1 -->
 
             <div class="overflow-hidden rounded-2xl shadow-md">
 
-                <img src="view/image/body 2.webp" alt="" class="h-56 w-full object-cover">
+                <img
+                    src="view/image/body 2.webp"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
 
                 <div class="flex flex-col gap-5 p-5">
 
                     <h3 class="text-2xl font-semibold">
-                        Your dreams, your plan
+                        Your goals, your plan
                     </h3>
 
                     <p class="text-lg font-light">
-                        Start crafting the foundation for the future
-                        you see yourself in.
+                        Start creating a foundation for the financial
+                        future you want.
                     </p>
 
-                    <button type="button"
-                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white">
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
                         Get Started
                     </button>
 
@@ -639,21 +736,28 @@
 
             <div class="overflow-hidden rounded-2xl shadow-md">
 
-                <img src="view/image/fraud.avif" alt="" class="h-56 w-full object-cover">
+                <img
+                    src="view/image/fraud.avif"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
 
                 <div class="flex flex-col gap-5 p-5">
 
                     <h3 class="text-2xl font-semibold">
-                        Think it’s your bank? Look again.
+                        Stay safe online
                     </h3>
 
                     <p class="text-lg font-light">
-                        Learn what to do if a scammer calls.
+                        Learn simple ways to recognize suspicious
+                        messages and protect your information.
                     </p>
 
-                    <button type="button"
-                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white">
-                        Get 5 tips
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
+                        Get Tips
                     </button>
 
                 </div>
@@ -665,21 +769,28 @@
 
             <div class="overflow-hidden rounded-2xl shadow-md">
 
-                <img src="view/image/dog owner.avif" alt="" class="h-56 w-full object-cover">
+                <img
+                    src="view/image/dog owner.avif"
+                    alt=""
+                    class="h-56 w-full object-cover"
+                >
 
                 <div class="flex flex-col gap-5 p-5">
 
                     <h3 class="text-2xl font-semibold">
-                        Secure your next chapter
+                        Plan for the future
                     </h3>
 
                     <p class="text-lg font-light">
-                        Protect what you've built as you look ahead.
+                        Explore ideas for protecting the things
+                        that matter to you.
                     </p>
 
-                    <button type="button"
-                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white">
-                        Explore options
+                    <button
+                        type="button"
+                        class="w-44 rounded-full border border-black py-2 transition hover:bg-black hover:text-white"
+                    >
+                        Explore
                     </button>
 
                 </div>
@@ -696,46 +807,59 @@
     <section class="w-full px-0 py-8 sm:py-10">
 
         <div
-            class="relative min-h-[750px] w-full overflow-hidden bg-gradient-to-br from-[#6B3E26] from-70% via-[#6B3E26] via-85% to-white md:min-h-[590px]">
+            class="relative min-h-[750px] w-full overflow-hidden bg-gradient-to-br from-[#6B3E26] from-70% via-[#6B3E26] via-85% to-white md:min-h-[590px]"
+        >
 
             <div class="mx-auto max-w-[1400px] px-5 sm:px-8 md:px-16">
 
-                <div class="flex flex-col items-center gap-8 md:flex-row md:items-start md:space-x-12">
+                <div
+                    class="flex flex-col items-center gap-8 md:flex-row md:items-start md:space-x-12"
+                >
 
                     <!-- Phone -->
 
                     <div class="w-full md:w-auto">
 
-                        <img src="view/image/phone.avif" alt="Mobile banking"
-                            class="relative top-0 mx-auto h-auto w-full max-w-[350px] object-contain md:top-12 md:max-w-[500px]">
+                        <img
+                            src="view/image/phone.avif"
+                            alt="Mobile banking"
+                            class="relative top-0 mx-auto h-auto w-full max-w-[350px] object-contain md:top-12 md:max-w-[500px]"
+                        >
 
                     </div>
 
 
                     <!-- Text -->
 
-                    <div class="flex w-full max-w-[680px] flex-col space-y-7 py-5">
+                    <div
+                        class="flex w-full max-w-[680px] flex-col space-y-7 py-5"
+                    >
 
                         <p class="mt-0 text-3xl font-semibold text-white sm:text-4xl md:mt-14">
-                            Need help? Ask Fargo <sup>®</sup>
+                            Need help? Try MyBank Assistant
                         </p>
 
                         <p class="w-full text-2xl text-white sm:text-3xl md:text-4xl">
-                            Fargo <sup>1</sup> gives you valuable insights like a
-                            summary of your spending by category, retailer and
-                            across accounts. Find it only in the Wells Fargo
-                            Mobile <sup>®</sup> app.
+                            MyBank Assistant gives you helpful insights
+                            and simple tools to help you understand your
+                            everyday spending.
                         </p>
 
                         <!-- App Store Buttons -->
 
                         <div class="flex flex-wrap gap-3">
 
-                            <img src="view/image/App_Store_Badge.avif" alt="Download on the App Store"
-                                class="h-12 w-auto cursor-pointer">
+                            <img
+                                src="view/image/App_Store_Badge.avif"
+                                alt="Download on the App Store"
+                                class="h-12 w-auto cursor-pointer"
+                            >
 
-                            <img src="view/image/GooglePlay_Badge.avif" alt="Get it on Google Play"
-                                class="h-12 w-auto cursor-pointer">
+                            <img
+                                src="view/image/GooglePlay_Badge.avif"
+                                alt="Get it on Google Play"
+                                class="h-12 w-auto cursor-pointer"
+                            >
 
                         </div>
 
@@ -835,7 +959,7 @@
 
                         <li>
                             <a href="#" class="transition hover:text-white hover:underline">
-                                Report Fraud
+                                Online Safety
                             </a>
                         </li>
 
@@ -908,27 +1032,37 @@
                         financial tips, and updates.
                     </p>
 
-                    <!-- Social Icons -->
-
                     <div class="flex gap-3">
 
-                        <a href="#" aria-label="Facebook"
-                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700">
+                        <a
+                            href="#"
+                            aria-label="Facebook"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
                             f
                         </a>
 
-                        <a href="#" aria-label="X"
-                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700">
+                        <a
+                            href="#"
+                            aria-label="X"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
                             X
                         </a>
 
-                        <a href="#" aria-label="Instagram"
-                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] text-xs font-bold transition hover:bg-orange-700">
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] text-xs font-bold transition hover:bg-orange-700"
+                        >
                             IG
                         </a>
 
-                        <a href="#" aria-label="LinkedIn"
-                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700">
+                        <a
+                            href="#"
+                            aria-label="LinkedIn"
+                            class="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3827] font-bold transition hover:bg-orange-700"
+                        >
                             in
                         </a>
 
@@ -946,10 +1080,11 @@
         <div class="border-t border-[#604333]">
 
             <div
-                class="mx-auto flex max-w-[1400px] flex-col gap-5 px-6 py-6 md:flex-row md:items-center md:justify-between">
+                class="mx-auto flex max-w-[1400px] flex-col gap-5 px-6 py-6 md:flex-row md:items-center md:justify-between"
+            >
 
                 <p class="text-sm text-orange-100">
-                    © 2026 Wells Fargo. All rights reserved.
+                    © 2026 MyBank. All rights reserved.
                 </p>
 
                 <div class="flex flex-wrap gap-4 text-sm text-orange-100 sm:gap-5">
@@ -983,9 +1118,7 @@
 
     <script>
 
-        /* ==========================================
-           PASSWORD SHOW / HIDE
-        ========================================== */
+        // PASSWORD SHOW / HIDE
 
         function togglePassword(button) {
 
@@ -1006,9 +1139,7 @@
         }
 
 
-        /* ==========================================
-           MOBILE SIDEBAR
-        ========================================== */
+        // MOBILE SIDEBAR
 
         const menuButton = document.getElementById("menuButton");
         const closeMenu = document.getElementById("closeMenu");
@@ -1016,7 +1147,7 @@
         const menuOverlay = document.getElementById("menuOverlay");
 
 
-        /* Open Sidebar */
+        // Open Sidebar
 
         function openMenu() {
 
@@ -1025,9 +1156,7 @@
             menuOverlay.classList.remove("hidden");
 
             setTimeout(function () {
-
                 menuOverlay.classList.remove("opacity-0");
-
             }, 10);
 
             menuButton.setAttribute("aria-expanded", "true");
@@ -1037,7 +1166,7 @@
         }
 
 
-        /* Close Sidebar */
+        // Close Sidebar
 
         function closeMenuFunction() {
 
@@ -1046,9 +1175,7 @@
             menuOverlay.classList.add("opacity-0");
 
             setTimeout(function () {
-
                 menuOverlay.classList.add("hidden");
-
             }, 300);
 
             menuButton.setAttribute("aria-expanded", "false");
@@ -1058,22 +1185,22 @@
         }
 
 
-        /* Open menu */
+        // Open menu
 
         menuButton.addEventListener("click", openMenu);
 
 
-        /* Close menu */
+        // Close menu
 
         closeMenu.addEventListener("click", closeMenuFunction);
 
 
-        /* Close when clicking overlay */
+        // Close when clicking overlay
 
         menuOverlay.addEventListener("click", closeMenuFunction);
 
 
-        /* Close when clicking navigation link */
+        // Close when clicking navigation link
 
         mobileSidebar.querySelectorAll("a").forEach(function (link) {
 
@@ -1082,7 +1209,7 @@
         });
 
 
-        /* Close with Escape key */
+        // Close with Escape key
 
         document.addEventListener("keydown", function (event) {
 
@@ -1095,31 +1222,14 @@
         });
 
 
-        /* ==========================================
-           DEMO FORM
-        ========================================== */
+        // Demo form
+        // This does NOT collect, save, or send login credentials.
 
-        // document
-        //     .getElementById("loginForm")
-        //     .addEventListener("submit", function (event) {
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
 
-        //         event.preventDefault();
+            event.preventDefault();
 
-        //         alert("Demo form submitted.");
-
-        //     });
-
-        // document.getElementById("loginForm").addEventListener("submit", function(event) {
-        //     event.preventDefault();
-
-        //     const username = document.getElementById("username").value;
-
-        //     // Save username
-        //     localStorage.setItem("username", username);
-
-        //     // Go to home page
-        //     window.location.href = "view/home.html";
-        // });
+        });
 
     </script>
 
