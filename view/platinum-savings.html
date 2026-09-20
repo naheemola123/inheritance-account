@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="./image/wellsfargo-com-logo.png">
+
+    <title>Platinum Savings</title>
+
+    <link rel="stylesheet" href="../../src/output.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: white;
+        }
+
+
+        /* =========================
+           WARNING POPUP
+        ========================= */
+
+        #warningPopup {
+            position: fixed;
+            inset: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.65);
+
+            backdrop-filter: blur(6px);
+
+            z-index: 9999;
+        }
+
+
+        #warningPopup.show {
+            display: flex;
+
+            animation: fadeIn 0.3s ease-out;
+        }
+
+
+        .warning-card {
+            width: 520px;
+            max-width: 100%;
+
+            padding: 40px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            text-align: center;
+
+            border: 1px solid #fee2e2;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.25),
+                0 0 40px rgba(220, 38, 38, 0.08);
+
+            animation: warningPop 0.55s
+                cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            /* Removes popup scrollbar */
+            overflow: hidden;
+        }
+
+
+        .warning-icon {
+            width: 90px;
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #fef2f2;
+
+            font-size: 52px;
+
+            box-shadow:
+                0 0 0 10px rgba(239, 68, 68, 0.05);
+
+            animation: iconPulse 1.5s ease-in-out infinite;
+        }
+
+
+        .warning-title {
+            margin: 0 0 15px;
+
+            font-size: 30px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: #dc2626;
+        }
+
+
+        .warning-message {
+            margin: 0 0 10px;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            color: #1f2937;
+        }
+
+
+        .warning-amount {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 14px 28px;
+
+            background: #fef2f2;
+
+            border: 1px solid #fecaca;
+
+            border-radius: 15px;
+
+            font-size: 46px;
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+            color: #dc2626;
+
+            box-shadow:
+                0 8px 25px rgba(220, 38, 38, 0.12);
+        }
+
+
+        .warning-notice {
+            margin-top: 18px;
+
+            font-size: 14px;
+            line-height: 1.6;
+
+            font-weight: 600;
+
+            color: #6b7280;
+        }
+
+
+        .continue-button {
+            display: block;
+
+            min-width: 190px;
+
+            margin: 30px auto 0;
+
+            padding: 14px 35px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #c2410c;
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(194, 65, 12, 0.25);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .continue-button:hover {
+            background: #9a3412;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(194, 65, 12, 0.35);
+        }
+
+
+        .continue-button:active {
+            transform: scale(0.96);
+        }
+
+
+        /* =========================
+           ACCOUNT SECTION
+        ========================= */
+
+        .account-wrapper {
+            width: 100%;
+            max-width: 700px;
+
+            padding: 20px;
+        }
+
+
+        .account-card {
+            width: 100%;
+
+            min-height: 96px;
+
+            border-radius: 0 8px 8px 0;
+
+            border-left: 4px solid #c2410c;
+
+            background: #f3f4f6;
+
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .account-card-content {
+            min-height: 96px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 16px;
+        }
+
+
+        .account-name {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .account-name img {
+            width: 36px;
+            height: 36px;
+
+            object-fit: contain;
+        }
+
+
+        .account-name p {
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: #c2410c;
+        }
+
+
+        .account-details {
+            text-align: right;
+
+            flex-shrink: 0;
+        }
+
+
+        .balance {
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: #374151;
+        }
+
+
+        .balance-label {
+            margin-top: 3px;
+
+            font-size: 14px;
+
+            color: #374151;
+        }
+
+
+        .withdraw-button {
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           INFORMATION BARS
+        ========================= */
+
+        .info-bar {
+            width: 100%;
+
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 8px 15px;
+        }
+
+
+        .save-bar {
+            background: white;
+        }
+
+
+        .wallet-bar {
+            background: #9ca3af;
+        }
+
+
+        .info-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           DISCLOSURES
+        ========================= */
+
+        .disclosures {
+            width: 100%;
+
+            padding: 15px 20px;
+        }
+
+
+        .disclosures p {
+            margin-bottom: 8px;
+        }
+
+
+        .disclosure-home {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .fico-text {
+            max-width: 384px;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes warningPop {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    scale(0.5)
+                    translateY(40px);
+            }
+
+            60% {
+                opacity: 1;
+
+                transform:
+                    scale(1.05)
+                    translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .account-wrapper {
+                max-width: 100%;
+
+                padding: 20px 15px;
+            }
+
+
+            .account-card-content {
+                gap: 12px;
+            }
+
+
+            .account-name p {
+                font-size: 14px;
+            }
+
+
+            .balance {
+                font-size: 15px;
+            }
+
+
+            .balance-label {
+                font-size: 12px;
+            }
+
+
+            .warning-card {
+                width: 500px;
+
+                padding: 30px;
+            }
+
+
+            .warning-title {
+                font-size: 26px;
+            }
+
+
+            .warning-message {
+                font-size: 18px;
+            }
+
+
+            .warning-amount {
+                font-size: 38px;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav,
+            .account-summary {
+                width: 100% !important;
+            }
+
+
+            nav img {
+                width: 220px !important;
+
+                max-width: 80%;
+            }
+
+
+            .account-card {
+                min-height: auto;
+            }
+
+
+            .account-card-content {
+                min-height: auto;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 15px;
+            }
+
+
+            .account-name {
+                width: 100%;
+            }
+
+
+            .account-details {
+                width: 100%;
+
+                text-align: left;
+            }
+
+
+            .balance,
+            .balance-label {
+                text-align: left;
+            }
+
+
+            .withdraw-button {
+                width: 100%;
+
+                margin-top: 10px;
+            }
+
+
+            .info-content {
+                flex-wrap: wrap;
+            }
+
+
+            .info-content p {
+                font-size: 12px;
+            }
+
+
+            .disclosures {
+                padding: 15px;
+            }
+
+
+            .disclosures p {
+                font-size: 13px;
+            }
+
+
+            /* Mobile popup */
+
+            .warning-card {
+                padding: 25px 18px;
+
+                border-radius: 18px;
+
+                overflow: hidden;
+            }
+
+
+            .warning-icon {
+                width: 70px;
+                height: 70px;
+
+                font-size: 40px;
+
+                margin-bottom: 18px;
+            }
+
+
+            .warning-title {
+                font-size: 21px;
+            }
+
+
+            .warning-message {
+                font-size: 16px;
+            }
+
+
+            .warning-amount {
+                font-size: 32px;
+
+                padding: 10px 18px;
+
+                letter-spacing: -1px;
+            }
+
+
+            .warning-notice {
+                font-size: 12px;
+            }
+
+
+            .continue-button {
+                width: 100%;
+
+                min-width: auto;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            nav img {
+                width: 180px !important;
+            }
+
+
+            .account-wrapper {
+                padding: 15px 10px;
+            }
+
+
+            .account-name p {
+                font-size: 13px;
+            }
+
+
+            .warning-card {
+                padding: 22px 14px;
+            }
+
+
+            .warning-title {
+                font-size: 19px;
+            }
+
+
+            .warning-amount {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="h-14 w-full bg-orange-700">
+
+        <div class="flex h-full items-center justify-center">
+
+            <div>
+                <img
+                    src="./image/logo.webp"
+                    alt="Bank logo"
+                    class="w-72 max-w-[80vw]"
+                >
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         ACCOUNT SUMMARY
+    ========================= -->
+
+    <div class="account-summary h-14 w-full bg-gray-200">
+
+        <div class="flex h-full items-center justify-center">
+
+            <p class="text-xl font-serif">
+                Account Summary
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ACCOUNT SECTION
+    ========================= -->
+
+    <section class="w-full">
+
+        <div class="flex w-full justify-center">
+
+            <div class="account-wrapper">
+
+                <div class="flex flex-col">
+
+
+                    <!-- ACCOUNT CARD -->
+
+                    <div class="account-card">
+
+                        <div class="account-card-content">
+
+
+                            <!-- ACCOUNT NAME -->
+
+                            <div class="account-name">
+
+                                <img
+                                    src="./image/wallet.png"
+                                    alt="Wallet"
+                                >
+
+                                <p>
+                                    PLATINUM SAVINGS
+                                </p>
+
+                            </div>
+
+
+                            <!-- ACCOUNT DETAILS -->
+
+                            <div class="account-details">
+
+                                <div class="balance">
+                                    $20,883.00
+                                </div>
+
+                                <div class="balance-label">
+                                    Available Balance
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WITHDRAW BUTTON -->
+
+                    <button
+                        onclick="showWarning()"
+                        class="withdraw-button rounded-md bg-orange-700 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-orange-800"
+                    >
+                        Withdraw
+                    </button>
+
+                    <a href="deposite-now.html">
+                        <button
+                            class="withdraw-button w-full rounded-md bg-orange-700 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-orange-800"
+                        >
+                            Deposite Now
+                        </button>
+                    </a>
+
+
+                    <!-- SAVE BAR -->
+
+                    <div class="save-bar info-bar mt-3">
+
+                        <div class="info-content">
+
+                            <img
+                                src="./image/save-money.png"
+                                alt="Save money"
+                                class="h-8 w-8 object-contain"
+                            >
+
+                            <p class="text-sm font-semibold text-blue-400">
+                                Way2Save: Automatically Save
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DIGITAL WALLET BAR -->
+
+                    <div class="wallet-bar info-bar">
+
+                        <div class="info-content">
+
+                            <p class="text-sm font-semibold text-white">
+                                Add Card to digital Wallets
+                            </p>
+
+                            <button
+                                type="button"
+                                class="cursor-pointer text-white"
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="h-4 w-4"
+                                >
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                                    />
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT DISCLOSURES -->
+
+                    <div class="disclosures">
+
+                        <p class="text-lg font-semibold">
+                            Account Disclosures
+                        </p>
+
+                        <p class="text-sm font-light">
+                            Deposit product offered by Wells Fargo Bank, N.A. Member FDIC.
+                        </p>
+
+
+                        <div class="disclosure-home">
+
+                            <img
+                                src="./image/house.png"
+                                alt="House"
+                                class="h-6 w-6"
+                            >
+
+                            <p class="text-sm font-light">
+                                Equal Housing Lender
+                            </p>
+
+                        </div>
+
+
+                        <p class="fico-text text-sm font-light">
+                            FICO is registered trademark of Fair Isaac Corporation in the United States and other countries.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+    <!-- WARNING POPUP -->
+
+    <div id="warningPopup">
+
+        <div class="warning-card">
+
+            <div class="warning-icon">
+                ⚠️
+            </div>
+
+
+            <h2 class="warning-title">
+                Account Notice
+            </h2>
+
+
+            <p class="warning-message">
+                Hi Ella Langley.
+            </p>
+
+
+            <p class="warning-message">
+                Tax Payment Notice
+            </p>
+
+
+            <p class="warning-notice">
+                A tax charge of $120,000 has been displayed.
+            </p>
+
+
+            <div>
+
+                <p class="warning-amount">
+                    $120,000
+                </p>
+
+            </div>
+
+
+            <button
+                class="continue-button"
+                onclick="closeWarning()"
+            >
+                Continue
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function showWarning() {
+
+            const popup =
+                document.getElementById("warningPopup");
+
+            popup.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeWarning() {
+
+            const popup =
+                document.getElementById("warningPopup");
+
+            popup.style.opacity = "0";
+
+            popup.style.transition =
+                "opacity 0.3s ease";
+
+
+            setTimeout(function () {
+
+                popup.classList.remove("show");
+
+                popup.style.opacity = "";
+
+                popup.style.transition = "";
+
+                document.body.style.overflow = "";
+
+            }, 300);
+        }
+
+
+        // Close popup when clicking outside the card
+
+        document
+            .getElementById("warningPopup")
+            .addEventListener("click", function (event) {
+
+                if (event.target === this) {
+
+                    closeWarning();
+
+                }
+
+            });
+
+
+        // Close popup with Escape key
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeWarning();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

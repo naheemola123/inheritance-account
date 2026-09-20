@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/jpeg" href="image/wellsfargo-com-logo.png">
+    <link rel="icon" type="image/jpeg" href="./image/wellsfargo-com-logo.png">
 
     <title>Welcome</title>
 
@@ -16,8 +16,15 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
+            width: 100%;
+            min-height: 100%;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             background:
                 radial-gradient(
                     circle at 10% 20%,
@@ -30,172 +37,8 @@
                     transparent 25%
                 ),
                 #f8fafc;
+            overflow-x: hidden;
         }
-
-        /* =========================
-           WARNING POPUP
-        ========================= */
-
-        #warningPopup {
-            position: fixed;
-            inset: 0;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            width: 100vw;
-            height: 100vh;
-
-            padding: 20px;
-
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(6px);
-
-            z-index: 9999;
-        }
-
-        #warningPopup.show {
-            display: flex;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .warning-card {
-            width: 520px;
-            max-width: 100%;
-
-            padding: 40px;
-
-            background: white;
-            border-radius: 24px;
-
-            text-align: center;
-
-            border: 1px solid #fee2e2;
-
-            box-shadow:
-                0 25px 60px rgba(0, 0, 0, 0.25),
-                0 0 40px rgba(220, 38, 38, 0.08);
-
-            animation: warningPop 0.55s
-                cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .warning-icon {
-            width: 90px;
-            height: 90px;
-
-            margin: 0 auto 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #fef2f2;
-
-            font-size: 52px;
-
-            box-shadow:
-                0 0 0 10px rgba(239, 68, 68, 0.05);
-
-            animation: iconPulse 1.5s ease-in-out infinite;
-        }
-
-        .warning-title {
-            margin: 0 0 15px;
-
-            font-size: 30px;
-            font-weight: 900;
-
-            text-transform: uppercase;
-            letter-spacing: 1px;
-
-            color: #dc2626;
-        }
-
-        .warning-message {
-            margin: 0;
-
-            font-size: 20px;
-            font-weight: 800;
-
-            color: #1f2937;
-        }
-
-        .warning-amount {
-            display: inline-block;
-
-            margin-top: 18px;
-            padding: 14px 28px;
-
-            background: #fef2f2;
-
-            border: 1px solid #fecaca;
-
-            border-radius: 15px;
-
-            font-size: 46px;
-            font-weight: 900;
-
-            letter-spacing: -2px;
-
-            color: #dc2626;
-
-            box-shadow:
-                0 8px 25px rgba(220, 38, 38, 0.12);
-        }
-
-        .warning-notice {
-            margin-top: 18px;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            color: #6b7280;
-        }
-
-        .continue-button {
-            display: block;
-
-            min-width: 190px;
-
-            margin: 30px auto 0;
-
-            padding: 14px 35px;
-
-            border: none;
-            border-radius: 12px;
-
-            background: #c2410c;
-
-            color: white;
-
-            font-size: 17px;
-            font-weight: 800;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 8px 20px rgba(194, 65, 12, 0.25);
-
-            transition: all 0.25s ease;
-        }
-
-        .continue-button:hover {
-            background: #9a3412;
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 25px rgba(194, 65, 12, 0.35);
-        }
-
-        .continue-button:active {
-            transform: scale(0.96);
-        }
-
 
         /* =========================
            MOBILE SIDEBAR
@@ -204,15 +47,10 @@
         #mobileSidebarOverlay {
             position: fixed;
             inset: 0;
-
             display: none;
-
             background: rgba(0, 0, 0, 0.55);
-
             z-index: 9997;
-
             opacity: 0;
-
             transition: opacity 0.3s ease;
         }
 
@@ -223,26 +61,16 @@
 
         #mobileSidebar {
             position: fixed;
-
             top: 0;
             right: 0;
-
-            width: 85%;
-            max-width: 360px;
+            width: min(85%, 360px);
             height: 100vh;
-
             background: white;
-
             z-index: 9998;
-
             overflow-y: auto;
-
             transform: translateX(100%);
-
             transition: transform 0.3s ease;
-
-            box-shadow:
-                -10px 0 35px rgba(0, 0, 0, 0.2);
+            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.2);
         }
 
         #mobileSidebar.show {
@@ -250,42 +78,33 @@
         }
 
         .sidebar-header {
-            height: 70px;
-
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 20px;
-
             background: #c2410c;
-
             border-bottom: 3px solid #facc15;
         }
 
         .sidebar-logo {
             width: 135px;
+            max-width: 70%;
             height: auto;
         }
 
         .sidebar-close {
             width: 42px;
             height: 42px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             border: none;
             border-radius: 50%;
-
             background: rgba(255, 255, 255, 0.15);
-
             color: white;
-
             font-size: 30px;
             line-height: 1;
-
             cursor: pointer;
         }
 
@@ -295,13 +114,10 @@
 
         .sidebar-section-title {
             margin: 0 0 12px;
-
             font-size: 12px;
             font-weight: 800;
-
             text-transform: uppercase;
             letter-spacing: 1px;
-
             color: #6b7280;
         }
 
@@ -309,35 +125,30 @@
             display: flex;
             align-items: center;
             gap: 14px;
-
             width: 100%;
-
             padding: 15px 5px;
-
             border-bottom: 1px solid #e5e7eb;
-
             color: #1f2937;
-
             text-decoration: none;
-
             font-size: 15px;
             font-weight: 600;
+            transition: color 0.2s ease, background 0.2s ease;
         }
 
         .sidebar-link:hover {
             color: #c2410c;
+            background: #fff7ed;
         }
 
         .sidebar-icon {
             width: 22px;
             height: 22px;
-
             object-fit: contain;
+            flex-shrink: 0;
         }
 
-
         /* =========================
-           DESKTOP NAV
+           NAVBAR
         ========================= */
 
         .desktop-nav {
@@ -348,62 +159,119 @@
             display: none;
         }
 
+        .navbar-inner {
+            width: 100%;
+        }
+
+        .navbar-logo {
+            max-width: 100%;
+            height: auto;
+        }
 
         /* =========================
-           ANIMATIONS
+           MAIN CONTENT
         ========================= */
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        .main-content {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            gap: 24px;
         }
 
-        @keyframes warningPop {
-            0% {
-                opacity: 0;
-                transform: scale(0.5) translateY(40px);
-            }
-
-            60% {
-                opacity: 1;
-                transform: scale(1.05) translateY(-5px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+        .account-section {
+            min-width: 0;
+            flex: 1;
         }
 
-        @keyframes iconPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.08);
-            }
+        .account-container {
+            width: 100%;
+            max-width: 650px;
         }
 
+        .accounts-container {
+            width: 100%;
+        }
+
+        .account-card {
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .account-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .account-card-inner {
+            width: 100%;
+        }
+
+        .account-details {
+            flex-shrink: 0;
+        }
+
+        .promo-section {
+            width: 100%;
+            min-height: 160px;
+            height: auto;
+        }
+
+        .promo-inner {
+            width: 100%;
+        }
+
+        .side-panel {
+            width: 288px;
+            flex-shrink: 0;
+        }
 
         /* =========================
-           TABLET / MOBILE
+           TABLET
+        ========================= */
+
+        @media (max-width: 1023px) {
+
+            .main-content {
+                max-width: 900px;
+                padding: 0 20px 40px;
+            }
+
+            .side-panel {
+                width: 260px;
+            }
+
+            .side-panel > div,
+            .side-panel .h-60,
+            .side-panel .h-48,
+            .side-panel .h-32,
+            .side-panel .h-11 {
+                width: 100% !important;
+            }
+
+            .promo-section {
+                width: 100%;
+            }
+
+            .promo-section > div {
+                padding: 24px 15px;
+            }
+
+            .promo-section > div > div {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .promo-section p {
+                width: auto !important;
+            }
+        }
+
+        /* =========================
+           MOBILE
         ========================= */
 
         @media (max-width: 767px) {
-
-            .desktop-nav {
-                display: none !important;
-            }
-
-            .mobile-menu-button {
-                display: flex;
-            }
 
             /* Navbar */
 
@@ -413,7 +281,6 @@
 
             .navbar-inner {
                 height: 64px;
-
                 padding: 0 16px !important;
             }
 
@@ -421,58 +288,102 @@
                 width: 135px !important;
             }
 
+            .desktop-nav {
+                display: none !important;
+            }
 
-            /* Account Summary */
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            /* Main layout */
+
+            .main-content {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 15px 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px;
+            }
 
             .account-section {
                 width: 100%;
-                padding: 0 16px;
+                padding: 0;
             }
 
             .account-container {
                 width: 100% !important;
+                max-width: 100%;
                 padding: 30px 0 !important;
             }
 
+            /* Account heading */
+
             .account-header {
-                gap: 15px;
+                width: 100%;
             }
 
             .account-header-top {
-                align-items: flex-start;
-                gap: 15px;
+                width: 100%;
+                align-items: center;
+                gap: 12px;
             }
 
             .account-summary-title {
                 font-size: 21px !important;
+                line-height: 1.2;
             }
 
+            .customize-container {
+                flex-shrink: 0;
+            }
 
-            /* Account Cards */
+            .customize-container img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .customize-container p {
+                font-size: 12px;
+            }
+
+            /* Account cards */
 
             .accounts-container {
                 width: 100% !important;
-                padding: 30px 0 !important;
-                gap: 20px !important;
+                padding: 25px 0 !important;
+                gap: 15px !important;
+            }
+
+            .accounts-container > a {
+                width: 100%;
             }
 
             .account-card {
                 width: 100% !important;
                 height: auto !important;
-                min-height: 130px;
-
+                min-height: 125px;
                 border-left-width: 4px;
             }
 
             .account-card-inner {
+                min-height: 125px;
+                height: auto !important;
                 flex-direction: column;
-
                 align-items: flex-start !important;
                 justify-content: center !important;
-
                 gap: 18px;
-
                 padding: 18px !important;
+            }
+
+            .account-card-inner > div:first-child {
+                width: 100%;
+            }
+
+            .account-card-inner > div:first-child img {
+                width: 32px;
             }
 
             .account-name {
@@ -481,14 +392,9 @@
 
             .account-details {
                 width: 100%;
-
-                flex-direction: row !important;
-
-                justify-content: space-between;
-
+                display: flex !important;
+                justify-content: flex-end;
                 align-items: center;
-
-                gap: 10px !important;
             }
 
             .balance-container {
@@ -496,7 +402,7 @@
             }
 
             .balance {
-                font-size: 14px !important;
+                font-size: 15px !important;
             }
 
             .available-balance {
@@ -504,99 +410,155 @@
                 white-space: nowrap;
             }
 
-            .withdraw-button {
-                padding: 9px 14px !important;
-                white-space: nowrap;
+            /* Promo */
+
+            .promo-section {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 0;
+                margin-top: 5px;
             }
 
-
-            /* Warning */
-
-            #warningPopup {
-                padding: 15px;
-            }
-
-            .warning-card {
-                padding: 30px 20px;
-                border-radius: 20px;
-            }
-
-            .warning-icon {
-                width: 70px;
-                height: 70px;
-
-                margin-bottom: 20px;
-
-                font-size: 40px;
-            }
-
-            .warning-title {
-                font-size: 22px;
-            }
-
-            .warning-message {
-                font-size: 17px;
-            }
-
-            .warning-amount {
-                font-size: 34px;
-
-                padding: 12px 20px;
-
-                letter-spacing: -1px;
-            }
-
-            .warning-notice {
-                font-size: 13px;
-            }
-
-            .continue-button {
+            .promo-section > div {
                 width: 100%;
-                min-width: 0;
+                padding: 25px 15px !important;
+            }
 
-                margin-top: 25px;
+            .promo-section > div > div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .promo-section > div > div > div {
+                width: 100%;
+                height: auto !important;
+                min-height: 70px;
+            }
+
+            .promo-section .border-r {
+                display: none;
+            }
+
+            .promo-section p {
+                width: 100% !important;
+            }
+
+            /* Hide desktop sidebar */
+
+            .side-panel {
+                display: none !important;
             }
         }
 
+        /* =========================
+           SMALL PHONES
+        ========================= */
 
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
+
+            .navbar-inner {
+                padding: 0 12px !important;
+            }
 
             .navbar-logo {
                 width: 120px !important;
+            }
+
+            .main-content {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .account-container {
+                padding-top: 25px !important;
+            }
+
+            .account-header-top {
+                align-items: flex-start;
             }
 
             .account-summary-title {
                 font-size: 19px !important;
             }
 
-            .account-header-top {
-                flex-direction: column;
-            }
-
             .customize-container {
-                align-self: flex-end;
+                gap: 5px !important;
             }
 
-            .account-details {
-                align-items: flex-end !important;
+            .customize-container img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .customize-container p {
+                font-size: 11px;
+            }
+
+            .account-card-inner {
+                padding: 15px !important;
+            }
+
+            .account-name {
+                font-size: 12px !important;
+            }
+
+            .balance {
+                font-size: 14px !important;
             }
 
             .available-balance {
                 font-size: 10px !important;
             }
 
-            .withdraw-button {
-                padding: 8px 11px !important;
-                font-size: 12px !important;
+            .sidebar-content {
+                padding: 16px;
             }
 
-            .warning-amount {
-                font-size: 30px;
+            .sidebar-link {
+                padding: 14px 5px;
+                font-size: 14px;
+            }
+        }
+
+        /* =========================
+           VERY SMALL PHONES
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .navbar-logo {
+                width: 110px !important;
+            }
+
+            .mobile-menu-button {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .account-summary-title {
+                font-size: 17px !important;
+            }
+
+            .customize-container p {
+                font-size: 10px;
+            }
+
+            .account-card-inner {
+                gap: 14px;
+            }
+
+            .balance {
+                font-size: 13px !important;
+            }
+
+            .available-balance {
+                font-size: 9px !important;
             }
         }
     </style>
 </head>
-
 
 <body>
 
@@ -604,11 +566,10 @@
          NAVBAR
     ========================= -->
 
-    <nav class="h-14 w-screen bg-orange-700">
+    <nav class="h-14 w-full bg-orange-700">
 
         <div
-            class="navbar-inner mx-auto flex h-full max-w-[1400px] items-center justify-between px-4 py-4 sm:px-8 md:px-12 lg:px-20"
-        >
+            class="navbar-inner mx-auto flex h-full max-w-[1400px] items-center justify-between px-4 py-4 sm:px-8 md:px-12 lg:px-20">
 
             <!-- Logo -->
 
@@ -620,12 +581,9 @@
                 >
             </div>
 
-
             <!-- Desktop Right Side -->
 
             <div class="desktop-nav items-center space-x-5">
-
-                <!-- Search -->
 
                 <img
                     src="./image/white-search-icon-button-png-img-735811696240431a0p3ex0i2v-removebg-preview.png"
@@ -634,9 +592,6 @@
                 >
 
                 <div class="h-6 border-l-2 border-white"></div>
-
-
-                <!-- Sign Off -->
 
                 <div class="flex cursor-pointer items-center space-x-5">
 
@@ -652,11 +607,7 @@
 
                 </div>
 
-
                 <div class="h-6 border-l-2 border-white"></div>
-
-
-                <!-- Profile -->
 
                 <div class="flex cursor-pointer items-center space-x-5">
 
@@ -676,7 +627,6 @@
                 </div>
 
             </div>
-
 
             <!-- Mobile Hamburger -->
 
@@ -725,8 +675,6 @@
 
     <aside id="mobileSidebar">
 
-        <!-- Sidebar Header -->
-
         <div class="sidebar-header">
 
             <img
@@ -746,21 +694,13 @@
 
         </div>
 
-
-        <!-- Sidebar Content -->
-
         <div class="sidebar-content">
-
-            <!-- Account -->
 
             <p class="sidebar-section-title">
                 Account
             </p>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="#" class="sidebar-link">
 
                 <img
                     src="./image/profile.png"
@@ -774,10 +714,7 @@
 
             </a>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="#" class="sidebar-link">
 
                 <img
                     src="./image/settings.png"
@@ -791,17 +728,11 @@
 
             </a>
 
-
-            <!-- Banking -->
-
             <p class="sidebar-section-title mt-8">
                 Banking
             </p>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="everyday-checking.html" class="sidebar-link">
 
                 <img
                     src="./image/wallet.png"
@@ -815,10 +746,7 @@
 
             </a>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="platinum-savings.html" class="sidebar-link">
 
                 <img
                     src="./image/money-saving.png"
@@ -832,17 +760,11 @@
 
             </a>
 
-
-            <!-- Security -->
-
             <p class="sidebar-section-title mt-8">
                 Security
             </p>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="#" class="sidebar-link">
 
                 <img
                     src="./image/passkey.png"
@@ -856,10 +778,7 @@
 
             </a>
 
-            <a
-                href="#"
-                class="sidebar-link"
-            >
+            <a href="#" class="sidebar-link">
 
                 <img
                     src="./image/white-search-icon-button-png-img-735811696240431a0p3ex0i2v-removebg-preview.png"
@@ -879,178 +798,571 @@
 
 
     <!-- =========================
-         ACCOUNT SUMMARY
+         MAIN CONTENT
     ========================= -->
 
-    <section class="account-section flex justify-center">
+    <div class="main-content flex justify-center">
 
-        <div class="account-container w-[700px] py-12">
+        <!-- ACCOUNT SECTION -->
 
-            <!-- Header -->
+        <section class="account-section flex justify-center">
 
-            <div class="account-header flex flex-col space-y-6">
+            <div class="account-container w-[650px] py-2">
 
-                <div class="account-header-top flex items-center justify-between">
+                <!-- Header -->
 
-                    <p class="account-summary-title text-2xl text-gray-500">
-                        Account Summary
-                    </p>
+                <div class="account-header flex flex-col space-y-1">
 
+                    <div class="account-header-top flex items-center justify-between">
 
-                    <!-- Customize -->
-
-                    <div
-                        class="customize-container flex cursor-pointer items-center space-x-3"
-                    >
-
-                        <img
-                            src="./image/settings.png"
-                            alt="Settings"
-                            class="h-6 cursor-pointer object-contain"
-                        >
-
-                        <p class="text-sm font-semibold text-blue-700">
-                            Customize
+                        <p class="account-summary-title text-2xl text-gray-500">
+                            Account Summary
                         </p>
 
-                    </div>
-
-                </div>
-
-
-                <p class="text-sm text-gray-500">
-                    Personal Accounts
-                </p>
-
-            </div>
-
-
-            <!-- =========================
-                 ACCOUNTS
-            ========================= -->
-
-            <div class="accounts-container flex flex-col space-y-9 py-12">
-
-                <!-- Everyday Checking -->
-
-                <div
-                    class="account-card h-24 w-[700px] rounded-r-lg border-l-4 border-orange-700 bg-white shadow-md shadow-gray-200"
-                >
-
-                    <div
-                        class="account-card-inner flex h-full items-center justify-between px-4 py-2"
-                    >
-
-                        <!-- Account Name -->
-
-                        <div class="flex items-center space-x-2">
+                        <div class="customize-container flex cursor-pointer items-center space-x-3">
 
                             <img
-                                src="./image/wallet.png"
-                                alt="Wallet"
-                                class="w-9"
+                                src="./image/settings.png"
+                                alt="Settings"
+                                class="h-6 cursor-pointer object-contain"
                             >
 
-                            <p class="account-name text-md font-semibold text-orange-700">
-                                EVERYDAY CHECKING
+                            <p class="text-sm font-semibold text-blue-700">
+                                Customize
                             </p>
 
                         </div>
 
+                    </div>
 
-                        <!-- Account Details -->
+                    <p class="text-sm text-gray-500">
+                        Personal Accounts
+                    </p>
 
-                        <div class="account-details flex items-center space-x-6">
+                </div>
 
-                            <div class="balance-container flex flex-col">
 
-                                <div
-                                    class="balance text-right font-normal text-gray-700"
-                                >
-                                    $110,000,000
+                <!-- ACCOUNTS -->
+
+                <div class="accounts-container flex flex-col space-y-2 py-6">
+
+                    <!-- Everyday Checking -->
+
+                    <a
+                        href="everyday-checking.html"
+                        class="block"
+                    >
+
+                        <div
+                            class="account-card h-24 w-[650px] rounded-r-lg border-l-4 border-orange-700 bg-white shadow-md shadow-gray-200"
+                        >
+
+                            <div
+                                class="account-card-inner flex h-full items-center justify-between px-4 py-2"
+                            >
+
+                                <div class="flex items-center space-x-2">
+
+                                    <img
+                                        src="./image/wallet.png"
+                                        alt="Wallet"
+                                        class="w-9"
+                                    >
+
+                                    <p class="account-name text-md font-semibold text-orange-700">
+                                        EVERYDAY CHECKING
+                                    </p>
+
                                 </div>
 
-                                <div
-                                    class="available-balance font-thin text-gray-700"
-                                >
-                                    Available Balance
+                                <div class="account-details flex items-center space-x-6">
+
+                                    <div class="balance-container flex flex-col">
+
+                                        <div class="balance text-right font-normal text-gray-700">
+                                            $110,000,000.00
+                                        </div>
+
+                                        <div class="available-balance font-thin text-gray-700">
+                                            Available Balance
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- Platinum Savings -->
+
+                    <a
+                        href="platinum-savings.html"
+                        class="block"
+                    >
+
+                        <div
+                            class="account-card h-24 w-[650px] rounded-r-lg border-l-4 border-orange-700 bg-white shadow-md shadow-gray-200"
+                        >
+
+                            <div
+                                class="account-card-inner flex h-full items-center justify-between px-4 py-2"
+                            >
+
+                                <div class="flex items-center space-x-2">
+
+                                    <img
+                                        src="./image/money-saving.png"
+                                        alt="Savings"
+                                        class="w-9"
+                                    >
+
+                                    <p class="account-name text-md font-semibold text-orange-700">
+                                        PLATINUM SAVINGS
+                                    </p>
+
+                                </div>
+
+                                <div class="account-details flex items-center space-x-6">
+
+                                    <div class="balance-container flex flex-col">
+
+                                        <div class="balance text-right font-normal text-gray-700">
+                                            $20,883.00
+                                        </div>
+
+                                        <div class="available-balance font-thin text-gray-700">
+                                            Available Balance
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- INFORMATION SECTION -->
+
+                <div class="promo-section shadow-sm shadow-gray-400">
+
+                    <div class="flex justify-center py-8">
+
+                        <div class="promo-inner flex items-center justify-around">
+
+                            <div class="flex flex-col space-y-2">
+
+                                <p class="text-md font-thin text-black">
+                                    As unique as you are
+                                </p>
+
+                                <p class="text-sm font-thin w-48 text-black">
+                                    Customize your debit card today
+                                </p>
+
+                            </div>
+
+                            <div class="h-20 w-0.5 border-r border-black"></div>
+
+                            <div class="flex flex-col space-y-2">
+
+                                <p class="text-md font-thin text-black">
+                                    Bank Your Way
+                                </p>
+
+                                <p class="text-sm font-thin w-48 text-black">
+                                    Personalizing your account can help
+                                </p>
+
+                            </div>
+
+                            <div class="h-20 w-0.5 border-r border-black"></div>
+
+                            <div class="flex flex-col space-y-2">
+
+                                <p class="text-md font-thin text-black">
+                                    Get Started
+                                </p>
+
+                                <p class="text-sm font-thin w-48 text-black">
+                                    Check out our checking account quick guide
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDEBAR -->
+
+        <div class="side-panel flex flex-col">
+
+            <div class="w-full bg-gray-700">
+
+                <div class="flex justify-center">
+
+                    <div class="flex w-full flex-col">
+
+                        <!-- Messages -->
+
+                        <div class="h-32 w-full bg-gray-600">
+
+                            <div class="relative left-12 top-14 h-8 w-[calc(100%-60px)] border-t border-b border-white">
+
+                                <div class="flex items-center justify-between space-x-2 cursor-pointer px-5 py-1">
+
+                                    <div class="flex items-center space-x-2">
+
+                                        <img
+                                            src="./image/email.png"
+                                            alt="Email"
+                                            class="h-4 object-contain"
+                                        >
+
+                                        <p class="text-sm font-light text-white">
+                                            View or send messages
+                                        </p>
+
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        class="text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-4 w-4"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
                                 </div>
 
                             </div>
 
 
-                            <!-- Withdraw -->
+                            <div class="flex flex-col space-y-12 mt-[-10px] px-7">
 
-                            <button
-                                onclick="showWarning()"
-                                class="withdraw-button rounded-lg bg-orange-700 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-orange-800"
-                            >
-                                Withdraw
-                            </button>
+                                <div class="flex items-center space-x-5">
 
-                        </div>
+                                    <p
+                                        id="sideWelcomeMessage"
+                                        class="text-lg font-semibold text-white"
+                                    >
+                                        Welcome
+                                    </p>
 
-                    </div>
-
-                </div>
-
-
-                <!-- Platinum Savings -->
-
-                <div
-                    class="account-card h-24 w-[700px] rounded-r-lg border-l-4 border-orange-700 bg-white shadow-md shadow-gray-200"
-                >
-
-                    <div
-                        class="account-card-inner flex h-full items-center justify-between px-4 py-2"
-                    >
-
-                        <!-- Account Name -->
-
-                        <div class="flex items-center space-x-2">
-
-                            <img
-                                src="./image/money-saving.png"
-                                alt="Savings"
-                                class="w-9"
-                            >
-
-                            <p class="account-name text-md font-semibold text-orange-700">
-                                PLATINUM SAVINGS
-                            </p>
-
-                        </div>
-
-
-                        <!-- Account Details -->
-
-                        <div class="account-details flex items-center space-x-6">
-
-                            <div class="balance-container flex flex-col">
-
-                                <div
-                                    class="balance text-right font-normal text-gray-700"
-                                >
-                                    $20,000,000
                                 </div>
 
-                                <div
-                                    class="available-balance font-thin text-gray-700"
-                                >
-                                    Available Balance
+                                <div class="flex items-center space-x-2">
+
+                                    <img
+                                        src="./image/passkey.png"
+                                        alt="Padlock"
+                                        class="h-4 object-contain"
+                                    >
+
+                                    <p class="text-sm font-semibold text-white">
+                                        Sign Off
+                                    </p>
+
                                 </div>
 
                             </div>
 
+                        </div>
 
-                            <!-- Withdraw -->
 
-                            <button
-                                onclick="showWarning()"
-                                class="withdraw-button rounded-lg bg-orange-700 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-orange-800"
-                            >
-                                Withdraw
-                            </button>
+                        <!-- CAROUSEL -->
+
+                        <div class="h-48 w-full bg-gray-700">
+
+                            <div class="flex h-full items-center justify-center">
+
+                                <div class="flex w-full items-center justify-between">
+
+                                    <!-- Previous -->
+
+                                    <button
+                                        id="prevBtn"
+                                        type="button"
+                                        class="px-2 text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-6 w-6"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
+
+                                    <!-- Carousel Content -->
+
+                                    <div
+                                        id="scrollContent"
+                                        class="mx-2 w-full overflow-hidden"
+                                    >
+
+                                        <!-- Content 1 -->
+
+                                        <div class="content-div flex flex-col space-y-4 text-center">
+
+                                            <div class="flex justify-center">
+
+                                                <img
+                                                    src="./image/card.webp"
+                                                    alt="Card"
+                                                    class="w-12"
+                                                >
+
+                                            </div>
+
+                                            <h2 class="text-xl font-semibold text-white">
+                                                Earn 20k Bonus pts
+                                            </h2>
+
+                                            <p class="text-white text-sm">
+                                                With the Wells Fargo Autograph credit card
+                                            </p>
+
+                                        </div>
+
+
+                                        <!-- Content 2 -->
+
+                                        <div class="content-div hidden flex flex-col space-y-4 text-center">
+
+                                            <div class="flex justify-center">
+
+                                                <img
+                                                    src="./image/smartphone.png"
+                                                    alt="Smartphone"
+                                                    class="w-16"
+                                                >
+
+                                            </div>
+
+                                            <h2 class="text-xl font-semibold text-white">
+                                                Accept Card Payment
+                                            </h2>
+
+                                            <p class="text-white text-sm">
+                                                Conveniently accept payment onsite, online, or on the go
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Next -->
+
+                                    <button
+                                        id="nextBtn"
+                                        type="button"
+                                        class="px-2 text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-6 w-6"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PLANNING & TOOLS -->
+
+                        <div class="h-11 w-full border-b-2 border-orange-500 bg-gray-600">
+
+                            <div class="flex justify-center">
+
+                                <div class="flex items-center space-x-2 py-2.5">
+
+                                    <img
+                                        src="./image/calendar-check.png"
+                                        alt="Planning"
+                                        class="h-6 object-contain"
+                                    >
+
+                                    <p class="text-md font-semibold text-white">
+                                        Planning & Tools
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TOOLS -->
+
+                        <div class="w-full bg-gray-600">
+
+                            <div class="flex flex-col">
+
+                                <div class="flex min-h-11 justify-between border-b border-white px-5">
+
+                                    <p class="flex items-center text-sm font-light text-white">
+                                        Calculate debt to income ratio
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        class="text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-4 w-4"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8.25 4.5l7.5 7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
+                                </div>
+
+
+                                <div class="flex min-h-11 justify-between border-b border-white px-5">
+
+                                    <p class="flex items-center text-sm font-light text-white">
+                                        View my retirement plan
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        class="text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-4 w-4"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8.25 4.5l7.5 7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
+                                </div>
+
+
+                                <div class="flex min-h-11 justify-between px-5">
+
+                                    <p class="flex items-center text-sm font-light text-white">
+                                        View My Credit Option Guide
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        class="text-white hover:text-orange-700"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                            stroke="currentColor"
+                                            class="h-4 w-4"
+                                        >
+
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8.25 4.5l7.5 7.5"
+                                            />
+
+                                        </svg>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -1059,55 +1371,6 @@
                 </div>
 
             </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         WARNING POPUP
-    ========================= -->
-
-    <div id="warningPopup">
-
-        <div class="warning-card">
-
-            <div class="warning-icon">
-                ⚠️
-            </div>
-
-
-            <h2 class="warning-title">
-                Important Warning
-            </h2>
-
-
-            <p class="warning-message">
-                Accumulated overdue charge
-            </p>
-
-
-            <div>
-
-                <p class="warning-amount">
-                    $120,000
-                </p>
-
-            </div>
-
-
-            <p class="warning-notice">
-                Please review your account before continuing.
-            </p>
-
-
-            <button
-                class="continue-button"
-                onclick="closeWarning()"
-            >
-                Continue
-            </button>
 
         </div>
 
@@ -1121,6 +1384,72 @@
     <script>
 
         /* =========================
+           CAROUSEL
+        ========================= */
+
+        const contents = document.querySelectorAll(
+            "#scrollContent .content-div"
+        );
+
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+
+        function showContent(index) {
+
+            contents.forEach(function (content, i) {
+
+                if (i === index) {
+                    content.classList.remove("hidden");
+                } else {
+                    content.classList.add("hidden");
+                }
+
+            });
+
+        }
+
+        if (contents.length > 0) {
+
+            showContent(currentIndex);
+
+            if (nextBtn) {
+
+                nextBtn.addEventListener("click", function () {
+
+                    currentIndex++;
+
+                    if (currentIndex >= contents.length) {
+                        currentIndex = 0;
+                    }
+
+                    showContent(currentIndex);
+
+                });
+
+            }
+
+            if (prevBtn) {
+
+                prevBtn.addEventListener("click", function () {
+
+                    currentIndex--;
+
+                    if (currentIndex < 0) {
+                        currentIndex = contents.length - 1;
+                    }
+
+                    showContent(currentIndex);
+
+                });
+
+            }
+
+        }
+
+
+        /* =========================
            WELCOME USERNAME
         ========================= */
 
@@ -1130,66 +1459,27 @@
         const welcomeMessage =
             document.getElementById("welcomeMessage");
 
+        const sideWelcomeMessage =
+            document.getElementById("sideWelcomeMessage");
+
         const sidebarWelcome =
             document.getElementById("sidebarWelcome");
 
-        if (username) {
+        const welcomeText =
+            username
+                ? "Welcome " + username
+                : "Welcome";
 
-            welcomeMessage.textContent =
-                "Welcome " + username;
-
-            sidebarWelcome.textContent =
-                "Welcome " + username;
-
-        } else {
-
-            welcomeMessage.textContent =
-                "Welcome";
-
-            sidebarWelcome.textContent =
-                "Welcome";
-
+        if (welcomeMessage) {
+            welcomeMessage.textContent = welcomeText;
         }
 
-
-        /* =========================
-           WARNING POPUP
-        ========================= */
-
-        function showWarning() {
-
-            const popup =
-                document.getElementById("warningPopup");
-
-            popup.classList.add("show");
-
-            document.body.style.overflow =
-                "hidden";
-
+        if (sideWelcomeMessage) {
+            sideWelcomeMessage.textContent = welcomeText;
         }
 
-
-        function closeWarning() {
-
-            const popup =
-                document.getElementById("warningPopup");
-
-            popup.style.opacity = "0";
-
-            popup.style.transition =
-                "opacity 0.3s ease";
-
-            setTimeout(function () {
-
-                popup.classList.remove("show");
-
-                popup.style.opacity = "";
-
-                document.body.style.overflow =
-                    "";
-
-            }, 300);
-
+        if (sidebarWelcome) {
+            sidebarWelcome.textContent = welcomeText;
         }
 
 
@@ -1212,63 +1502,81 @@
 
         function openMobileSidebar() {
 
+            if (!mobileSidebar || !mobileSidebarOverlay) {
+                return;
+            }
+
             mobileSidebar.classList.add("show");
 
             mobileSidebarOverlay.classList.add("show");
 
-            mobileMenuButton.setAttribute(
-                "aria-expanded",
-                "true"
-            );
+            if (mobileMenuButton) {
 
-            document.body.style.overflow =
-                "hidden";
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+            document.body.style.overflow = "hidden";
 
         }
 
 
         function closeMobileSidebar() {
 
+            if (!mobileSidebar || !mobileSidebarOverlay) {
+                return;
+            }
+
             mobileSidebar.classList.remove("show");
 
             mobileSidebarOverlay.classList.remove("show");
 
-            mobileMenuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            if (mobileMenuButton) {
 
-            document.body.style.overflow =
-                "";
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+            document.body.style.overflow = "";
 
         }
 
 
-        /* Open sidebar */
+        if (mobileMenuButton) {
 
-        mobileMenuButton.addEventListener(
-            "click",
-            openMobileSidebar
-        );
+            mobileMenuButton.addEventListener(
+                "click",
+                openMobileSidebar
+            );
 
-
-        /* Close sidebar */
-
-        closeSidebar.addEventListener(
-            "click",
-            closeMobileSidebar
-        );
+        }
 
 
-        /* Close by clicking overlay */
+        if (closeSidebar) {
 
-        mobileSidebarOverlay.addEventListener(
-            "click",
-            closeMobileSidebar
-        );
+            closeSidebar.addEventListener(
+                "click",
+                closeMobileSidebar
+            );
+
+        }
 
 
-        /* Close with Escape */
+        if (mobileSidebarOverlay) {
+
+            mobileSidebarOverlay.addEventListener(
+                "click",
+                closeMobileSidebar
+            );
+
+        }
+
 
         document.addEventListener(
             "keydown",
@@ -1278,35 +1586,26 @@
 
                     closeMobileSidebar();
 
-                    if (
-                        document
-                            .getElementById("warningPopup")
-                            .classList
-                            .contains("show")
-                    ) {
-
-                        closeWarning();
-
-                    }
-
                 }
 
             }
         );
 
 
-        /* Close sidebar after clicking a link */
+        if (mobileSidebar) {
 
-        mobileSidebar
-            .querySelectorAll("a")
-            .forEach(function (link) {
+            mobileSidebar
+                .querySelectorAll("a")
+                .forEach(function (link) {
 
-                link.addEventListener(
-                    "click",
-                    closeMobileSidebar
-                );
+                    link.addEventListener(
+                        "click",
+                        closeMobileSidebar
+                    );
 
-            });
+                });
+
+        }
 
     </script>
 
